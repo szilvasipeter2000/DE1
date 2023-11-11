@@ -24,7 +24,7 @@ BEGIN
 			od.productID,
 			od.unitPrice AS unitPrice_order_details,
 			od.quantity AS quantity_order_details,
-            (od.unitPrice * od.quantity) as Revenue,
+            (od.unitPrice * od.quantity) AS Revenue,
 			od.discount,
 			c.companyName AS customer_companyName,
 			c.contactName AS customer_contactName,
@@ -55,7 +55,7 @@ BEGIN
     END//
     
     DELIMITER ;
-    call CreateAnalyticalLayer;
+    CALL CreateAnalyticalLayer;
     
 -- ----------------------------------------
 -- -------- Creating an Event -------------				
@@ -161,7 +161,7 @@ DELIMITER ;
 -- 	A View/Mart containing information about sales
 
 drop view if exists sales_analysis;
-Create View sales_analysis as 
+CREATE VIEW sales_analysis AS 
 SELECT
         a.orderID AS OrderID,
         a.orderDate AS Ordered,
@@ -180,7 +180,7 @@ SELECT
 -- 		Just for this I created the view `sales_trends` to show how I would answer my analytical questions.
 -- 		Added coloumn sales_ratio, which shows the monthly_revenue as percentage of the given year's revenue.
 --  	Could look at most successful month in a year, in terms of share of revenue.
-drop view if exists sales_trends;
+DROP VIEW IF EXISTS sales_trends;
 CREATE VIEW sales_trends AS
 	WITH MonthlySales AS (
 		SELECT
@@ -216,7 +216,7 @@ CREATE VIEW sales_trends AS
 -- 2. EMPLOYEE ANALYSIS
 -- A View/Mart involving data about employees 
 
-drop view if exists employee_analysis;
+DROP VIEW IF EXISTS employee_analysis;
 CREATE VIEW employee_analysis AS
 WITH supervisor AS (
     SELECT
@@ -276,7 +276,7 @@ GROUP BY
 -- 4. SHIPPING DESCRIPTIVE ANALYSIS
 -- A view involving already shipped orders
 
-drop view if exists descriptive_shipping_analytics;
+DROP VIEW IF EXISTS descriptive_shipping_analytics;
 Create view descriptive_shipping_analytics as
 SELECT
         a.orderID AS OrderID,
@@ -298,8 +298,8 @@ END AS Delay,
         
 -- 5. SHIPPING PREDICTIVE ANALYSIS
 -- A view involving not yet shipped orders
-drop view if exists predictive_shipping_analytics;
-create view  predictive_shipping_analytics as
+DROP VIEW IF EXISTS predictive_shipping_analytics;
+CREATE VIEW  predictive_shipping_analytics AS
     SELECT
         a.orderID AS OrderID,
         a.requiredDate AS Required,
@@ -308,7 +308,7 @@ create view  predictive_shipping_analytics as
         a.customer_city AS City,
         ROUND(a.unitPrice_order_details * a.quantity_order_details, 2) AS Revenue,
         a.freight AS PredictedFreightCost
-    from
+    FROM
         analytical_layer a
-	where
+	WHERE
 		a.shippedDate IS NULL; -- filter for not yet shipped orders;
