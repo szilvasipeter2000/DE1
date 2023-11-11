@@ -9,8 +9,8 @@ This repository contains my materials for Term Project 1 for my Data Engineering
 `Northwind` is a relational dataset about a fictitious gourmet food supplier, including sales & orders, customers, products, shippers, and employees.
 Source is [Maven Analytics](https://mavenanalytics.io/data-playground?search=Northwind).
  - 7 relatioanal tables
- - '# of fields 28'
- - '# of records 2,985'
+ - 28 # of fields 
+ - 2,985 # of records
  - files are CSVs (76 kb)
  - contains some missing values
       - not yet shipped orders in `ShippedDate` column
