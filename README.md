@@ -78,5 +78,7 @@ I demonstrated additional ETL elements in the querying of these views:
 1. Download and run `1_operational_data_layer.sql` in MYSQL Workbench.
 2. Download and run `2_analytical_codes.sql` in MYSQL Workbench.
 3. After Successful running, these should appear:
-   ![image](https://github.com/szilvasipeter2000/Term1/assets/144559314/31d205b9-ac66-471b-b3f0-536245b4c590)
+
+
+![image](https://github.com/szilvasipeter2000/Term1/assets/144559314/31d205b9-ac66-471b-b3f0-536245b4c590)
 
