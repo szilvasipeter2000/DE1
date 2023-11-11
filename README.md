@@ -52,13 +52,13 @@ For each of the 5 segments I created Marts as Views:
    
 I demonstrated additional ETL elements in the querying of these views:
 - `sales_analysis`
-   - week()
-   - month()
+   - WEEK()
+   - MONTH()
    - ROUND(SUM())
 - `employee_analysis`
    - DISTINCT
    - ROUND(SUM()
-   - COUONT()
+   - COUNT()
    - common table expression (CTE)
 - `customer_analytics`
    - MAX()
