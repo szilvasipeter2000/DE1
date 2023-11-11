@@ -56,16 +56,17 @@ I demonstrated additional ETL elements in the querying of these views:
    - month()
    - ROUND(SUM())
 - `employee_analysis`
-   - Nested Querying
    - DISTINCT
    - ROUND(SUM()
    - COUONT()
+   - common table expression (CTE)
 - `customer_analytics`
    - MAX()
    - MIN()
    - DATEDIFF()
    - COUNT()
    - ROUND(SUM())
+   - Nested querying
 - `descriptive_shipping_analytics`
    - CASE WHEN
    - DATEDIFF()
