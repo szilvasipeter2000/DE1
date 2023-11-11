@@ -33,7 +33,7 @@ Lastly for each of the 5 segments I will design a View/Mart that would specifica
 My detailed questions can be found in `analytical_plan`.
 
 ## 3. Analytical Layer and ETL
-The SQL script `2_analytical_codes` contains the rest of the Project.
+The SQL script `2_analytical_codes.sql` contains the rest of the Project.
 1. Created a Stored Procedure `CreateAnalyticalLayer` which would create table `analytical_layer` in a denormalized data structure.
 3. Added Event `monthly_analytical_layer` for monthly updates.
     - this starts at the beginning of next month and is scheduled every 1 month
@@ -75,4 +75,4 @@ I demonstrated additional ETL elements in the querying of these views:
  
 # 5. Reproducing
 1. Download and run `1_operational_data_layer.sql` in MYSQL Workbench.
-2. Download and run `2_analytical_codes` in MYSQL Workbench.
+2. Download and run `2_analytical_codes.sql` in MYSQL Workbench.
