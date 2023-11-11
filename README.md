@@ -16,14 +16,14 @@ Source is [Maven Analytics](https://mavenanalytics.io/data-playground?search=Nor
  - contains some missing values
       - not yet shipped orders in `ShippedDate` column
       - employee reports to no one in case of Vice President Sales in `reportsTO` column
-      - 
+        
 ## 1. Database Setup
 After downloading the files:
   1. I created the `EER diagram` to get a better overview about how the tables are linked.
   2. With Forward Engineer I created the Table Structures.
   3. Using `LOAD DATA INFILE` I created my Operational Layer.
      - `1_operational_data_layer.sql` uses data dumping for the sake of reproducibility
-     - 
+       
 ## 2. Analytical Plan
 My plan is to look into the segments; sales, employee, customer, descriptive shipping, and predictive shipping data.
 For easier querying an Analytical Layer would contain all relevant variables for the 5 segments.
@@ -38,6 +38,8 @@ The SQL script `2_analytical_codes` contains the rest of the Project.
 3. Added Event `monthly_analytical_layer` for monthly updates.
     - this starts at the beginning of next month and is scheduled every 1 month
 4. Added Trigger `after_order_insert`
+    - each new order is logged in table `log_book`
+    - trigger after insert on `order_details` inserts new row to `analytical_layer`
 
 ## 4. Marts as Views
 For each of the 5 segments I created Marts as Views:
@@ -70,3 +72,7 @@ I demonstrated additional ETL elements in the querying of these views:
    - ROUND()
 - `predictive_shipping_analytics`
    - ROUND()
+ 
+# 5. Reproducing
+1. Download and run `1_operational_data_layer.sql` in MYSQL Workbench.
+2. Download and run `2_analytical_codes` in MYSQL Workbench.
