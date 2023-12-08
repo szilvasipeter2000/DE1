@@ -23,7 +23,10 @@ After downloading the files:
   2. With Forward Engineer I created the Table Structures.
   3. Using `LOAD DATA INFILE` I created my Operational Layer.
      - `1_operational_data_layer.sql` uses data dumping for the sake of reproducibility
-       
+ 
+![image](https://github.com/szilvasipeter2000/Term1/assets/144559314/956f3152-23b8-4935-8efb-dd3c31c81ec8)
+
+ 
 ## 2. Analytical Plan
 My plan is to look into the segments; sales, employee, customer, descriptive shipping, and predictive shipping data.
 For easier querying an Analytical Layer would contain all relevant variables for the 5 segments.
